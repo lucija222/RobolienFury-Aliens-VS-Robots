@@ -1,4 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
+import Login from "./pages/Login";
+import Arena from "./pages/Arena";
 
 export const router = createBrowserRouter([
     {
@@ -7,6 +9,6 @@ export const router = createBrowserRouter([
     },
     {
         path: "arena",
-        element: <Main />,
+        element: <Arena />,
     },
 ]);
