@@ -4,23 +4,46 @@ import "./login.scss";
 
 const Login = () => {
     const [username, setUsername] = useState("");
-    const [characterDescription, setCharacterDescription] = useState(""); //have to use regex to replce spaces with -
-    const [selectedCharacter, setSelectedCharacter] = useState("Robot");
-    // const updatedCharacterDescription =
-    //     replaceSpacesWithDashes(characterDescription); //send to regex
-    const robotImageURL = `https://robohash.org/${finalCharacterDescription}`; //ADD if selcted robot -- else alien
-    const alienImageURL = `https://robohash.org/${finalCharacterDescription}?set=set2`;
+    const [characterDescription, setCharacterDescription] = useState("");
+    const [isAlienSelected, setIsAlienSelected] = useState(false);
+    const [isRobotSelected, setIsRobotSelected] = useState(false);
+    const [selectedCharacter, setSelectedCharacter] = useState("");
+    const [isInfoHovered, setIsInfoHovered] = useState(false);
+    const [characterImageURL, setCharacterImageURL] = useState(``);
 
-    const handleOnClick = (e) => {
+    const handleBtnOnClick = (e) => {
         e.stopPropagation();
-        setSelectedCharacter(e.target.value);
-        console.log(selectedCharacter);
+        setSelectedCharacter(e.target.innerText);
+
+        if (e.target.innerText === "Alien") {
+            setIsAlienSelected(true);
+            setSelectedCharacter("alien");
+            if (isRobotSelected === true) {
+                setIsRobotSelected(false);
+            }
+        } else if (e.target.innerText === "Robot") {
+            setIsRobotSelected(true);
+            setSelectedCharacter("robot");
+            if (isAlienSelected === true) {
+                setIsAlienSelected(false);
+            }
+        }
     };
 
     const updateUsername = (e) => {
         e.stopPropagation();
         setUsername(e.target.value);
-    }
+    };
+
+    const handleInfoHover = (e) => {
+        e.stopPropagation();
+        setIsInfoHovered(true);
+    };
+
+    const handleInfoUnhover = (e) => {
+        e.stopPropagation();
+        setIsInfoHovered(false);
+    };
 
     const updateCharacterDescription = (e) => {
         e.stopPropagation();
@@ -31,10 +54,17 @@ const Login = () => {
         e.preventDefault();
         e.stopPropagation();
 
-        const finalCharacterDescription = replaceSpacesWithDashes(characterDescription);
+        const finalCharacterDescription =
+            replaceSpacesWithDashes(characterDescription);
 
         if (selectedCharacter === "Alien") {
-            const characterURL = {}
+            setCharacterImageURL(
+                `https://robohash.org/${finalCharacterDescription}?set=set2?size=200x200`
+            );
+        } else if (selectedCharacter === "Robot") {
+            setCharacterImageURL(
+                `https://robohash.org/${finalCharacterDescription}?size=200x200`
+            );
         }
     };
 
@@ -43,15 +73,31 @@ const Login = () => {
             <h1>
                 Robolien Fury: <br /> <span>Aliens VS Robots</span>
             </h1>
-            <p>It's year 3027 and only robots remain on Earth, or so they thought before an alien invasion! Choose your side in the final battle of two warlords and determine Earth's fate! </p>
+            <p>
+                It's year 3027 and only robots remain on Earth, or so they
+                thought before an alien invasion! Choose your side in the final
+                battle of two warlords and determine Earth's fate!
+            </p>
 
             <div className="button-container">
                 <p>Alien or robot warlord?</p>
-                <div onClick={handleOnClick}>
-                    <button type="button" className="aline-button">
+                <div
+                    onClick={handleBtnOnClick}
+                >
+                    <button
+                        type="button"
+                        className={
+                            isAlienSelected ? "btn-selected" : "btn-default"
+                        }
+                    >
                         Alien
                     </button>
-                    <button type="button" className="robot-button">
+                    <button
+                        type="button"
+                        className={
+                            isRobotSelected ? "btn-selected" : "btn-default"
+                        }
+                    >
                         Robot
                     </button>
                 </div>
@@ -71,8 +117,24 @@ const Login = () => {
                 />
                 <br />
                 <label htmlFor="characterDescription">
-                    Generate character <span className="info">&#128712;</span>
-                </label> {/*create a modal when info is hovered*/}
+                    Generate character{" "}
+                    <span
+                        className="info"
+                        onMouseEnter={handleInfoHover}
+                        onMouseLeave={handleInfoUnhover}
+                    >
+                        &#128712;
+                    </span>
+                </label>
+                {/* <div className="info-container"> */}
+                <p className={isInfoHovered ? "info-box" : "info-box hidden"}>
+                    Character images are generated based on text input using an
+                    algorithm provided by the awesome Robohash service.
+                    Specifying features as "blue eyes" won't make the
+                    character have blue eyes, so have fun with random
+                    descriptions and see what you create!
+                </p>
+                {/* </div> */}
                 <input
                     id="characterDescription"
                     type="text"
@@ -83,7 +145,9 @@ const Login = () => {
                     onChange={updateCharacterDescription}
                 />
                 <br />
-                <button type="submit" className="submit-button">Ready for battle!</button>
+                <button type="submit" className="submit-button">
+                    Ready for battle!
+                </button>
             </form>
         </div>
     );
