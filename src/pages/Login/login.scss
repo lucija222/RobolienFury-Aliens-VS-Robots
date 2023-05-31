@@ -110,9 +110,9 @@ form {
     }
 }
 
-.info {
+.info-btn {
     position: absolute;
-    inset: 400px 0 0 107px;
+    inset: 76px 0 0 90px;
     color: white;
     font-size: 20px;
     width: 20px;
@@ -148,7 +148,7 @@ form {
     }
 }
 
-.info-btn {
+.info-box-btn {
     margin: auto;
     position: absolute;
     inset: 240px 0 0;
@@ -195,7 +195,7 @@ form {
             }
         }
 
-        .info-btn {
+        .info-box-btn {
             inset: 250px 0 0;
             font-size: 16px;
         }
@@ -220,7 +220,7 @@ form {
             padding: 20px;
         }
 
-        .info-btn {
+        .info-box-btn {
             inset: 230px 0 0;
         }
 
@@ -239,7 +239,7 @@ form {
                 }
             }
 
-            .info-btn {
+            .info-box-btn {
                 height: 36px;
                 width: 86px;
                 font-size: 18px;
@@ -266,9 +266,9 @@ form {
                 transform: translateY(4.5vh);
             }
 
-            // form .info {
-            //     inset: 66px 0 0 86px;
-            // }
+            .info-btn {
+                inset: 67px 0 0 90px;
+            }
 
             form label:first-of-type {
                 padding-top: 0;
@@ -284,7 +284,7 @@ form {
                 }
             }
     
-            .info-btn {
+            .info-box-btn {
                 font-size: 16px;
                 inset: 325px 0 0;
             }
@@ -298,10 +298,10 @@ form {
 
         form {
             row-gap: 5px;
+        }
 
-            // .info {
-            //     inset: 81px 0 0 88px;
-            // }
+        .info-btn {
+            inset: 82px 0 0 90px;
         }
 
         .info-box {
@@ -314,7 +314,7 @@ form {
             }
         }
 
-        .info-btn {
+        .info-box-btn {
             font-size: 18px;
             height: 36px;
             width: 86px;
@@ -342,7 +342,7 @@ form {
             }
         }
 
-        .info-btn {
+        .info-box-btn {
             font-size: 18px;
             height: 36px;
             width: 86px;
@@ -369,7 +369,7 @@ form {
             height: 330px;
         }
 
-        .info-btn {
+        .info-box-btn {
             inset: 250px 0 0;
         }
     }
@@ -389,13 +389,13 @@ form {
             padding: 15px 17px;
         }
 
-        .info-btn {
+        .info-box-btn {
             inset: 227px 0 0;
         }
 
-        // form .info {
-        //     inset: 78px 0 0 104px;
-        // }
+        .info-btn {
+            inset: 78px 0 0 108px;
+        }
     }
 
     @media (min-width: 500px) {
@@ -417,13 +417,13 @@ form {
             padding: 15px 17px;
         }
 
-        .info-btn {
+        .info-box-btn {
             inset: 307px 0 0;
         }
 
-        // form .info {
-        //     inset: 82px 0 0 88px;
-        // }
+        .info-btn {
+            inset: 82px 0 0 94px;
+        }
     }
 
     @media (min-width: 400px) {
@@ -431,13 +431,13 @@ form {
             height: 360px;
         }
 
-        .info-btn {
+        .info-box-btn {
             inset: 283px 0 0;
         }
 
-        // form .info {
-        //     inset: 93px 0 0 105px;
-        // }
+        .info-btn {
+            inset: 93px 0 0 108px;
+        }
     }
 
     @media (min-width: 500px) {
@@ -446,12 +446,8 @@ form {
             padding: 15px 19px;
         }
 
-        .info-btn {
+        .info-box-btn {
             inset: 230px 0 0;
         }
-    }
-
-    @media (min-width: 600px) {
-        
     }
 }

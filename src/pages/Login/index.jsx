@@ -12,6 +12,7 @@ const Login = () => {
     const [characterImageURL, setCharacterImageURL] = useState(``);
 
     const handleBtnOnClick = (e) => {
+        console.log("ENTERED");
         e.stopPropagation();
         const targetInnerText = e.target.innerText;
         setSelectedCharacter(targetInnerText);
@@ -119,6 +120,9 @@ const Login = () => {
                     <br />
                     <label htmlFor="characterDescription">
                         Generate character
+                        <span className="info-btn" onClick={handleInfoClick}>
+                            &#128712;
+                        </span>
                     </label>
                     <input
                         id="characterDescription"
@@ -135,15 +139,13 @@ const Login = () => {
                     </button>
                 </form>
             </div>
-            <button className="info" onClick={handleInfoClick}>
-                &#128712;
-            </button>
             <p className={isInfoClicked ? "info-box" : "info-box hidden"}>
                 Character images are generated based on text input using an
-                algorithm provided by the awesome <a href="https://robohash.org/">Robohash</a> service. Specifying
+                algorithm provided by the awesome
+                <a href="https://robohash.org/"> Robohash</a>  service. Specifying
                 features as "blue eyes" won't make the character have blue eyes,
                 so have fun with random descriptions and see what you create!
-                <button className="info-btn" onClick={handleCloseInfoClick}>
+                <button className="info-box-btn" onClick={handleCloseInfoClick}>
                     Close
                 </button>
             </p>
