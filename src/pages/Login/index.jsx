@@ -140,7 +140,7 @@ const Login = () => {
             </button>
             <p className={isInfoClicked ? "info-box" : "info-box hidden"}>
                 Character images are generated based on text input using an
-                algorithm provided by the awesome Robohash service. Specifying
+                algorithm provided by the awesome <a href="https://robohash.org/">Robohash</a> service. Specifying
                 features as "blue eyes" won't make the character have blue eyes,
                 so have fun with random descriptions and see what you create!
                 <button className="info-btn" onClick={handleCloseInfoClick}>
