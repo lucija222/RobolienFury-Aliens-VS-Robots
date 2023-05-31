@@ -13,15 +13,16 @@ const Login = () => {
 
     const handleBtnOnClick = (e) => {
         e.stopPropagation();
-        setSelectedCharacter(e.target.innerText);
+        const targetInnerText = e.target.innerText;
+        setSelectedCharacter(targetInnerText);
 
-        if (e.target.innerText === "Alien") {
+        if (targetInnerText === "Alien") {
             setIsAlienSelected(true);
             setSelectedCharacter("alien");
             if (isRobotSelected === true) {
                 setIsRobotSelected(false);
             }
-        } else if (e.target.innerText === "Robot") {
+        } else if (targetInnerText === "Robot") {
             setIsRobotSelected(true);
             setSelectedCharacter("robot");
             if (isAlienSelected === true) {
@@ -126,15 +127,13 @@ const Login = () => {
                         &#128712;
                     </span>
                 </label>
-                {/* <div className="info-container"> */}
-                <p className={isInfoHovered ? "info-box" : "info-box hidden"}>
+                <p className={isInfoHovered ? "info-box" : "info-box"}>
                     Character images are generated based on text input using an
                     algorithm provided by the awesome Robohash service.
                     Specifying features as "blue eyes" won't make the
                     character have blue eyes, so have fun with random
                     descriptions and see what you create!
                 </p>
-                {/* </div> */}
                 <input
                     id="characterDescription"
                     type="text"
