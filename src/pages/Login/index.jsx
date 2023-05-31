@@ -8,7 +8,7 @@ const Login = () => {
     const [isAlienSelected, setIsAlienSelected] = useState(false);
     const [isRobotSelected, setIsRobotSelected] = useState(false);
     const [selectedCharacter, setSelectedCharacter] = useState("");
-    const [isInfoHovered, setIsInfoHovered] = useState(false);
+    const [isInfoClicked, setIsInfoHovered] = useState(false);
     const [characterImageURL, setCharacterImageURL] = useState(``);
 
     const handleBtnOnClick = (e) => {
@@ -36,14 +36,9 @@ const Login = () => {
         setUsername(e.target.value);
     };
 
-    const handleInfoHover = (e) => {
+    const handleInfoClick = (e) => {
         e.stopPropagation();
         setIsInfoHovered(true);
-    };
-
-    const handleInfoUnhover = (e) => {
-        e.stopPropagation();
-        setIsInfoHovered(false);
     };
 
     const updateCharacterDescription = (e) => {
@@ -118,16 +113,15 @@ const Login = () => {
                 />
                 <br />
                 <label htmlFor="characterDescription">
-                    Generate character{" "}
-                    <span
+                    Generate character
+                    <button
                         className="info"
-                        onMouseEnter={handleInfoHover}
-                        onMouseLeave={handleInfoUnhover}
+                        onClick={handleInfoClick}
                     >
                         &#128712;
-                    </span>
+                    </button>
                 </label>
-                <p className={isInfoHovered ? "info-box" : "info-box"}>
+                <p className={isInfoClicked ? "info-box" : "info-box"}>
                     Character images are generated based on text input using an
                     algorithm provided by the awesome Robohash service.
                     Specifying features as "blue eyes" won't make the
