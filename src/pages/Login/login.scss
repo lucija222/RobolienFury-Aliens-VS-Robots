@@ -2,6 +2,10 @@ body {
     background-color: #26272c;
 }
 
+.relative-container {
+    position: relative;
+}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -41,14 +45,6 @@ body {
         width: 80px;
         border: none;
         cursor: pointer;
-
-        &:first-child {
-            border-radius: 11px 0 0 11px;
-        }
-
-        &:nth-child(2) {
-            border-radius: 0 11px 11px 0;
-        }
     }
 
     .btn-selected {
@@ -65,13 +61,21 @@ body {
             color: white;
         }
     }
+}
 
-    .button-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        row-gap: 10px;
+.button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 10px;
+
+    button:first-child {
+        border-radius: 11px 0 0 11px;
+    }
+
+    button:nth-child(2) {
+        border-radius: 0 11px 11px 0;
     }
 }
 
@@ -97,20 +101,6 @@ form {
         align-self: center;
     }
 
-    .info {
-        position: absolute;
-        inset: 66px 0 0 87px;
-        color: white;
-        font-size: 20px;
-        width: 120px;
-        padding: 0 0 50px 40px;
-
-        opacity: 0.9;
-        cursor: pointer;
-        text-align: left;
-        z-index: 1;
-    }
-
     label:first-of-type {
         padding-top: 10px;
     }
@@ -120,18 +110,61 @@ form {
     }
 }
 
+.info {
+    position: absolute;
+    inset: 400px 0 0 107px;
+    color: white;
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+    padding: 0 0 50px 40px;
+    border: none;
+    background-color: transparent;
+    opacity: 0.9;
+    cursor: pointer;
+    text-align: left;
+}
+
 .info-box {
     display: inline-block;
     position: absolute;
-    inset: 97px 0 0 0;
-    padding: 6px 10px;
-    font-size: 12px;
+    inset: -30px 0 0;
+    margin: auto;
+    height: 300px;
+    width: 200px;
+    padding: 10px 10px;
+    font-size: 14px;
     color: black;
     background-color: white;
     border: 2.5px dashed #26272c;
     border-radius: 3px;
-    text-align: justify;
-    overflow-y: scroll;
+    text-align: center;
+    z-index: 3;
+}
+
+.info-btn {
+    margin: auto;
+    position: absolute;
+    inset: 240px 0 0;
+    height: 30px;
+    width: 80px;
+    cursor: pointer;
+    background-color: rgb(153, 0, 0);
+    color: white;
+    border: 2px solid black;
+    border-radius: 3px;
+    z-index: 1;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    min-width: 223px;
+    width: 100vw;
+    min-height: 374px;
+    height: 100vh;
+    background-color: rgba(153, 0, 0, 0.86);
+    z-index: 0;
 }
 
 .hidden {
@@ -145,9 +178,9 @@ form {
             width: 240px;
         }
 
-        .info-box {
-            height: 90px;
-        }
+        // .info-box {
+        //     height: 90px;
+        // }
     }
 
     @media (min-width: 400px) {
@@ -163,9 +196,9 @@ form {
             width: 270px;
         }
 
-        .info-box {
-            font-size: 14px;
-        }
+        // .info-box {
+        //     font-size: 14px;
+        // }
 
         @media (min-width: 500px) {
             form {
@@ -184,9 +217,9 @@ form {
                 width: 400px;
             }
 
-            .info-box {
-                height: 100px;
-            }
+            // .info-box {
+            //     height: 100px;
+            // }
         }
     }
 
@@ -220,11 +253,11 @@ form {
             }
         }
 
-        .info-box {
-            height: 96px;
-            inset: 115px 0 0;
-            overflow-y: auto;
-        }
+        // .info-box {
+        //     height: 96px;
+        //     inset: 115px 0 0;
+        //     overflow-y: auto;
+        // }
     }
 
     @media (min-height: 800px) {
@@ -260,10 +293,10 @@ form {
             font-size: 16px;
         }
 
-        .info-box {
-            height: 87px;
-            inset: 110px 0 0;
-        }
+        // .info-box {
+        //     height: 87px;
+        //     inset: 110px 0 0;
+        // }
 
         form .info {
             inset: 78px 0 0 104px;
@@ -273,9 +306,9 @@ form {
 
 @media screen and (min-height: 700px) {
     @media (min-width: 350px) {
-        .info-box {
-            height: 120px;
-        }
+        // .info-box {
+        //     height: 120px;
+        // }
 
         .container {
             row-gap: 30px;
@@ -287,10 +320,10 @@ form {
     }
 
     @media (min-width: 400px) {
-        .info-box {
-            height: 110px;
-            inset: 122px 0 0;
-        }
+        // .info-box {
+        //     height: 110px;
+        //     inset: 122px 0 0;
+        // }
 
         form .info {
             inset: 93px 0 0 105px;
@@ -298,14 +331,14 @@ form {
     }
 
     @media (min-width: 500px) {
-        .info-box {
-            height: 148px;
-        }
+        // .info-box {
+        //     height: 148px;
+        // }
     }
 
     @media (min-width: 600px) {
-        .info-box {
-            font-size: 15px;
-        }
+        // .info-box {
+        //     font-size: 15px;
+        // }
     }
 }
