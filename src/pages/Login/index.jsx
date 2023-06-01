@@ -1,5 +1,5 @@
 import { useState } from "react";
-import replaceSpacesWithDashes from "../../util/helpers/replaceSpacesWithDashes";
+import replaceSpaceWithPercentage from "../../util/helpers/replaceSpaceWithPercentage";
 import "./login.scss";
 
 const Login = () => {
@@ -12,7 +12,6 @@ const Login = () => {
     const [characterImageURL, setCharacterImageURL] = useState(``);
 
     const handleBtnOnClick = (e) => {
-        console.log("ENTERED");
         e.stopPropagation();
         const targetInnerText = e.target.innerText;
         setSelectedCharacter(targetInnerText);
@@ -57,7 +56,9 @@ const Login = () => {
         e.stopPropagation();
 
         const finalCharacterDescription =
-            replaceSpacesWithDashes(characterDescription);
+            replaceSpaceWithPercentage(characterDescription);
+
+            console.log(finalCharacterDescription);
 
         if (selectedCharacter === "Alien") {
             setCharacterImageURL(
@@ -71,7 +72,7 @@ const Login = () => {
     };
 
     return (
-        <div id="main">
+        <>
             <div className="container">
                 <h1>
                     Robolien Fury: <br /> <span>Aliens VS Robots</span>
@@ -112,7 +113,7 @@ const Login = () => {
                         autoComplete="off"
                         pattern="[^' ']+"
                         placeholder="Spaces not supported"
-                        maxLength="15"
+                        maxLength={15}
                         required
                         value={username}
                         onChange={updateUsername}
@@ -128,7 +129,7 @@ const Login = () => {
                         id="characterDescription"
                         type="text"
                         placeholder="Click on &#128712; for more info"
-                        maxLength="30"
+                        maxLength={30}
                         required
                         value={characterDescription}
                         onChange={updateCharacterDescription}
@@ -150,7 +151,7 @@ const Login = () => {
                 </button>
             </p>
             <div className={isInfoClicked ? "overlay" : "overlay hidden"}></div>
-        </div>
+        </>
     );
 };
 
