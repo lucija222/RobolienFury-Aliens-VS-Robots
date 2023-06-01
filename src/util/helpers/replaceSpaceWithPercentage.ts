@@ -1,4 +1,4 @@
-const replaceSpaceWithPercentage = (characterDescription) => {
+const replaceSpaceWithPercentage = (characterDescription: string): string => {
     const fixedCharacterDescription = characterDescription.replace(/\s+/g, '%');
     return fixedCharacterDescription;
 };

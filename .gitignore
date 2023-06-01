@@ -11,6 +11,8 @@
 #compiled files
 *.css
 *.css.map
+*.js
+*.jsx
 
 # production
 /build
