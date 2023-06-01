@@ -1,0 +1,453 @@
+body {
+    background-color: #26272c;
+}
+
+.relative-container {
+    position: relative;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 10px;
+    min-height: 500px;
+    max-height: 700px;
+    height: 90vh;
+    min-width: 220px;
+    max-width: 83vw;
+    transform: translateY(3vh);
+    background-color: rgb(153, 0, 0);
+    padding: 10px;
+    margin: auto;
+    border-radius: 8px;
+    text-align: center;
+
+    h1 {
+        font-size: 17px;
+        text-align: center;
+        font-family: "Nosifer", cursive;
+        text-shadow: 7px 5px 3px rgba(255, 255, 255, 0.2);
+
+        > span {
+            font-size: 14px;
+            font-family: "Nosifer", cursive;
+        }
+
+        + p {
+            padding: 5px;
+        }
+    }
+
+    button {
+        height: 30px;
+        width: 80px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .btn-selected {
+        background-color: #26272c;
+        color: white;
+    }
+
+    .btn-default {
+        background-color: white;
+        color: black;
+
+        &:hover {
+            background-color: #36373d7c;
+            color: white;
+        }
+    }
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 10px;
+
+    button:first-child {
+        border-radius: 11px 0 0 11px;
+    }
+
+    button:nth-child(2) {
+        border-radius: 0 11px 11px 0;
+    }
+}
+
+form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 200px;
+
+    input {
+        font-size: 14px;
+        font-weight: 400;
+        border: none;
+        border-radius: 3px;
+        padding: 2px 0 2px 10px;
+        outline: none;
+    }
+
+    .submit-button {
+        width: 150px;
+        border-radius: 3px;
+        align-self: center;
+    }
+
+    label:first-of-type {
+        padding-top: 10px;
+    }
+
+    label {
+        padding-bottom: 5px;
+    }
+}
+
+.info-btn {
+    position: absolute;
+    inset: 76px 0 0 90px;
+    color: white;
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+    padding: 0 0 50px 40px;
+    border: none;
+    background-color: transparent;
+    opacity: 0.9;
+    cursor: pointer;
+    text-align: left;
+}
+
+.info-box {
+    display: inline-block;
+    position: absolute;
+    inset: -30px 0 0;
+    margin: auto;
+    height: 300px;
+    width: 200px;
+    padding: 10px;
+    font-size: 14px;
+    color: black;
+    background-color: white;
+    border: 2.5px dashed #26272c;
+    border-radius: 3px;
+    text-align: center;
+    z-index: 3;
+
+    a {
+        color: rgb(153, 0, 0);
+        font-size: 14px;
+        font-weight: 600;
+    }
+}
+
+.info-box-btn {
+    margin: auto;
+    position: absolute;
+    inset: 240px 0 0;
+    height: 30px;
+    width: 80px;
+    cursor: pointer;
+    background-color: rgb(153, 0, 0);
+    color: white;
+    border: 2px solid black;
+    border-radius: 3px;
+    z-index: 1;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    min-width: 223px;
+    width: 100vw;
+    min-height: 374px;
+    height: 100vh;
+    background-color: rgba(153, 0, 0, 0.86);
+    z-index: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+//-----------------Width queries
+@media screen {
+    @media (min-width: 350px) {
+        form {
+            width: 240px;
+        }
+
+        .info-box {
+            height: 330px;
+            width: 250px;
+            padding: 15px;
+            font-size: 16px;
+
+            a {
+                font-size: 16px;
+            }
+        }
+
+        .info-box-btn {
+            inset: 250px 0 0;
+            font-size: 16px;
+        }
+    }
+
+    @media (min-width: 400px) {
+        .container {
+            row-gap: 20px;
+
+            h1 + p {
+                padding: 0 30px;
+            }
+        }
+
+        form {
+            width: 270px;
+        }
+
+        .info-box {
+            width: 280px;
+            height: 310px;
+            padding: 20px;
+        }
+
+        .info-box-btn {
+            inset: 230px 0 0;
+        }
+
+        @media (min-width: 500px) {
+            form {
+                width: 330px;
+            }
+
+            .info-box {
+                width: 350px;
+                height: 340px;
+                font-size: 18px;
+
+                a {
+                    font-size: 18px;
+                }
+            }
+
+            .info-box-btn {
+                height: 36px;
+                width: 86px;
+                font-size: 18px;
+            }
+        }
+
+        @media (min-width: 600px) {
+            .container {
+                min-width: 500px;
+                max-width: 500px;
+                padding: 10px 0;
+            }
+
+            form {
+                width: 400px;
+            }
+        }
+    }
+
+    //-----------------Height queries
+    @media screen {
+        @media (min-height: 600px) {
+            .container {
+                transform: translateY(4.5vh);
+            }
+
+            .info-btn {
+                inset: 67px 0 0 90px;
+            }
+
+            form label:first-of-type {
+                padding-top: 0;
+            }
+    
+            .info-box {
+                height: 400px;
+                font-size: 16px;
+                padding: 15px;
+    
+                a {
+                    font-size: 16px;
+                }
+            }
+    
+            .info-box-btn {
+                font-size: 16px;
+                inset: 325px 0 0;
+            }
+        }
+    }
+
+    @media (min-height: 700px) {
+        .container {
+            row-gap: 30px;
+        }
+
+        form {
+            row-gap: 5px;
+        }
+
+        .info-btn {
+            inset: 82px 0 0 90px;
+        }
+
+        .info-box {
+            height: 470px;
+            font-size: 18px;
+            padding: 10px 12px;
+
+            a {
+                font-size: 18px;
+            }
+        }
+
+        .info-box-btn {
+            font-size: 18px;
+            height: 36px;
+            width: 86px;
+            inset: 380px 0 0;
+        }
+    }
+
+    @media (min-height: 800px) {
+        .container {
+            transform: translateY(9vh);
+        }
+    }
+}
+
+//------------------------Mixed queries
+@media screen and (min-height: 500px) {
+    @media (min-width: 500px) {
+        .info-box {
+            height: 310px;
+            font-size: 18px;
+            padding: 15px 26px;
+
+            a {
+                font-size: 18px;
+            }
+        }
+
+        .info-box-btn {
+            font-size: 18px;
+            height: 36px;
+            width: 86px;
+            inset: 230px 0 0;
+        }
+    }
+}
+
+@media screen and (min-height: 600px) {
+    @media (min-width: 350px) {
+        .container {
+            row-gap: 16px;
+
+            h1 {
+                font-size: 22px;
+
+                > span {
+                    font-size: 18px;
+                }
+            }
+        }
+
+        .info-box {
+            height: 330px;
+        }
+
+        .info-box-btn {
+            inset: 250px 0 0;
+        }
+    }
+
+    @media (min-width: 400px) {
+        h1 + p,
+        .button-container p,
+        button,
+        label,
+        form input,
+        form {
+            font-size: 16px;
+        }
+
+        .info-box {
+            height: 310px;
+            padding: 15px 17px;
+        }
+
+        .info-box-btn {
+            inset: 227px 0 0;
+        }
+
+        .info-btn {
+            inset: 78px 0 0 108px;
+        }
+    }
+
+    @media (min-width: 500px) {
+        .info-box {
+            font-size: 18px;
+            padding: 15px 18px;
+        }
+    }
+}
+
+@media screen and (min-height: 700px) {
+    @media (min-width: 350px) {
+        .container {
+            row-gap: 30px;
+        }
+        
+        .info-box {
+            height: 390px;
+            padding: 15px 17px;
+        }
+
+        .info-box-btn {
+            inset: 307px 0 0;
+        }
+
+        .info-btn {
+            inset: 82px 0 0 94px;
+        }
+    }
+
+    @media (min-width: 400px) {
+        .info-box {
+            height: 360px;
+        }
+
+        .info-box-btn {
+            inset: 283px 0 0;
+        }
+
+        .info-btn {
+            inset: 93px 0 0 108px;
+        }
+    }
+
+    @media (min-width: 500px) {
+        .info-box {
+            height: 310px;
+            padding: 15px 19px;
+        }
+
+        .info-box-btn {
+            inset: 230px 0 0;
+        }
+    }
+}

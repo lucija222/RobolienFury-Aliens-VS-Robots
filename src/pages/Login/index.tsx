@@ -1,4 +1,9 @@
-import { useState } from "react";
+import React, {
+    ChangeEventHandler,
+    FormEventHandler,
+    MouseEventHandler,
+    useState,
+} from "react";
 import replaceSpaceWithPercentage from "../../util/helpers/replaceSpaceWithPercentage";
 import "./login.scss";
 
@@ -11,9 +16,10 @@ const Login = () => {
     const [isInfoClicked, setIsInfoClicked] = useState(false);
     const [characterImageURL, setCharacterImageURL] = useState(``);
 
-    const handleBtnOnClick = (e) => {
+    const handleBtnOnClick: MouseEventHandler<HTMLDivElement> = (e) => {
         e.stopPropagation();
-        const targetInnerText = e.target.innerText;
+        const target = e.target as HTMLDivElement;
+        const targetInnerText = target.innerText;
         setSelectedCharacter(targetInnerText);
 
         if (targetInnerText === "Alien") {
@@ -31,34 +37,32 @@ const Login = () => {
         }
     };
 
-    const updateUsername = (e) => {
+    const updateUsername: ChangeEventHandler<HTMLInputElement> = (e) => {
         e.stopPropagation();
         setUsername(e.target.value);
     };
 
-    const handleInfoClick = (e) => {
+    const handleInfoClick: MouseEventHandler<HTMLSpanElement> = (e) => {
         e.stopPropagation();
         setIsInfoClicked(true);
     };
 
-    const handleCloseInfoClick = (e) => {
+    const handleCloseInfoClick: MouseEventHandler<HTMLButtonElement> = (e) => {
         e.stopPropagation();
         setIsInfoClicked(false);
     };
 
-    const updateCharacterDescription = (e) => {
+    const updateCharacterDescription: ChangeEventHandler<HTMLInputElement> = (e) => {
         e.stopPropagation();
         setCharacterDescription(e.target.value);
     };
 
-    const handleFormSubmit = (e) => {
+    const handleFormSubmit: FormEventHandler<HTMLFormElement> = (e) => {
         e.preventDefault();
         e.stopPropagation();
 
         const finalCharacterDescription =
             replaceSpaceWithPercentage(characterDescription);
-
-            console.log(finalCharacterDescription);
 
         if (selectedCharacter === "Alien") {
             setCharacterImageURL(
@@ -143,9 +147,10 @@ const Login = () => {
             <p className={isInfoClicked ? "info-box" : "info-box hidden"}>
                 Character images are generated based on text input using an
                 algorithm provided by the awesome
-                <a href="https://robohash.org/"> Robohash</a>  service. Specifying
-                features as "blue eyes" won't make the character have blue eyes,
-                so have fun with random descriptions and see what you create!
+                <a href="https://robohash.org/"> Robohash</a> service.
+                Specifying features as "blue eyes" won't make the character have
+                blue eyes, so have fun with random descriptions and see what you
+                create!
                 <button className="info-box-btn" onClick={handleCloseInfoClick}>
                     Close
                 </button>
